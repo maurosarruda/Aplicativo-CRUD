@@ -23,7 +23,7 @@ class ListarDadosActivity : AppCompatActivity() {
 
     private fun gerarTabela(nomeTabela: String) {
 
-        var entradasTabela : String = ""
+        var entradasTabela = ""
 
         when (nomeTabela) {
             ConstantesBD.FITA.NOME_TABELA -> {

@@ -15,7 +15,7 @@ import maurodossantos.crudteste.util.ManipulacaoBD
 
 class CadastrarLocacaoActivity : AppCompatActivity(), View.OnClickListener {
 
-    lateinit var manipuladorBD: ManipulacaoBD
+    private lateinit var manipuladorBD: ManipulacaoBD
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ class CadastrarLocacaoActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        var id = view.id
+        val id = view.id
         when (id) {
             R.id.btCadastrarLocacao -> {
                 manipularCadastro()
@@ -47,11 +47,8 @@ class CadastrarLocacaoActivity : AppCompatActivity(), View.OnClickListener {
     private fun manipularCadastro() {
         if(validarCampos()) {
 
-            val entradasFita : EntradasFita?
-            val entradasCliente : EntradasCliente?
-
-            entradasFita = manipuladorBD.buscarFita(edNomeFitaLocacao.text.toString())
-            entradasCliente = manipuladorBD.buscarCliente(edNomeClienteLocacao.text.toString())
+            val entradasFita = manipuladorBD.buscarFita(edNomeFitaLocacao.text.toString())
+            val entradasCliente = manipuladorBD.buscarCliente(edNomeClienteLocacao.text.toString())
 
             if(entradasFita != null && entradasCliente != null) {
                 val idExecucaoSQL = manipuladorBD.inserirLocacao(

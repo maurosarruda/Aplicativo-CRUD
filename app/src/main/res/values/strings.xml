@@ -11,7 +11,7 @@
     <string name="precoEd">Preço</string>
     <string name="excluir">Excluir</string>
     <string name="pesquisar_titulo">Pesquisar Titulo</string>
-    <string name="cadastrar_nova_fita">Cadastrar Nova Fita</string>
+    <string name="cadastrar_nova_fita">Cadastrar Fita</string>
     <string name="listar_todas">Listar Todas</string>
     <string name="alterar">Alterar</string>
     <string name="entre_com_o_titulo">Entre com o titulo</string>
@@ -23,8 +23,8 @@
     <string name="informacoes_da_tabela">informações da tabela</string>
     <string name="titulo_informacoes_tabela">Informações da Tabela:</string>
     <string name="cadastro_de_locacao">Cadastro de Locação</string>
-    <string name="nome_cliente_locacao">Nome Cliente:</string>
-    <string name="nome_fita_locacao">Nome Fita:</string>
+    <string name="nome_cliente_locacao">Nome do Cliente:</string>
+    <string name="nome_fita_locacao">Nome da Fita:</string>
     <string name="nome_da_fita_locacao_ed">Nome da Fita</string>
     <string name="cadastrar_locacao_bt">Cadastrar Locação</string>
     <string name="listar_locacoes_bt">Listar Locações</string>

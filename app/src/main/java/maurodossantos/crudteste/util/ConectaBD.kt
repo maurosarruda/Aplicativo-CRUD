@@ -12,27 +12,27 @@ import maurodossantos.crudteste.constantes.ConstantesBD
 class ConectaBD(private var context: Context) : SQLiteOpenHelper(context, ConstantesBD.BD_INFORMACOES.BD_NOME, null, ConstantesBD.BD_INFORMACOES.BD_VERSAO) {
 
     private val createTabelaFita = (
-            "create table " + ConstantesBD.FITA.NOME_TABELA + " ("
-                    + ConstantesBD.FITA.COLUNAS.ID + " integer primary key autoincrement, "
-                    + ConstantesBD.FITA.COLUNAS.TITULO + " text, "
-                    + ConstantesBD.FITA.COLUNAS.ANO + " integer, "
-                    + ConstantesBD.FITA.COLUNAS.PRECO  + " integer);")
+            "CREATE TABLE " + ConstantesBD.FITA.NOME_TABELA + " ("
+                    + ConstantesBD.FITA.COLUNAS.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + ConstantesBD.FITA.COLUNAS.TITULO + " TEXT, "
+                    + ConstantesBD.FITA.COLUNAS.ANO + " INTEGER, "
+                    + ConstantesBD.FITA.COLUNAS.PRECO  + " INTEGER);")
 
     private val createTabelaCliente = (
-            "create table " + ConstantesBD.CLIENTE.NOME_TABELA + " ("
-                    + ConstantesBD.CLIENTE.COLUNAS.ID + " integer primary key autoincrement, "
-                    + ConstantesBD.CLIENTE.COLUNAS.NOME + " text, "
-                    + ConstantesBD.CLIENTE.COLUNAS.IDADE  + " integer);")
+            "CREATE TABLE " + ConstantesBD.CLIENTE.NOME_TABELA + " ("
+                    + ConstantesBD.CLIENTE.COLUNAS.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + ConstantesBD.CLIENTE.COLUNAS.NOME + " TEXT, "
+                    + ConstantesBD.CLIENTE.COLUNAS.IDADE  + " INTEGER);")
 
     private val createTabelaLocacao = (
-            "create table " + ConstantesBD.LOCACAO.NOME_TABELA + " ("
-                    + ConstantesBD.LOCACAO.COLUNAS.ID_LOCACAO + " integer primary key autoincrement, "
-                    + ConstantesBD.LOCACAO.COLUNAS.ID_CLIENTE + " integer not null " +
+            "CREATE TABLE " + ConstantesBD.LOCACAO.NOME_TABELA + " ("
+                    + ConstantesBD.LOCACAO.COLUNAS.ID_LOCACAO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + ConstantesBD.LOCACAO.COLUNAS.ID_CLIENTE + " INTEGER NOT NULL " +
                     "REFERENCES ${ConstantesBD.CLIENTE.NOME_TABELA} (${ConstantesBD.CLIENTE.COLUNAS.ID})\n ON DELETE CASCADE, "
-                    + ConstantesBD.LOCACAO.COLUNAS.NOME_CLIENTE + " text, "
-                    + ConstantesBD.LOCACAO.COLUNAS.ID_FITA + " integer not null " +
+                    + ConstantesBD.LOCACAO.COLUNAS.NOME_CLIENTE + " TEXT, "
+                    + ConstantesBD.LOCACAO.COLUNAS.ID_FITA + " INTEGER NOT NULL " +
                     "REFERENCES ${ConstantesBD.FITA.NOME_TABELA} (${ConstantesBD.FITA.COLUNAS.ID})\n ON DELETE CASCADE, "
-                    + ConstantesBD.LOCACAO.COLUNAS.NOME_FITA  + " text);")
+                    + ConstantesBD.LOCACAO.COLUNAS.NOME_FITA  + " TEXT);")
 
     override fun onCreate(sqLiteDatabase: SQLiteDatabase) {
 

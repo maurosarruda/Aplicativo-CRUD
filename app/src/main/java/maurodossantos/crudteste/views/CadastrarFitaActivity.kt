@@ -13,7 +13,7 @@ import maurodossantos.crudteste.util.ManipulacaoBD
 
 class CadastrarFitaActivity : AppCompatActivity(), View.OnClickListener {
 
-    lateinit var manipuladorBD: ManipulacaoBD
+    private lateinit var manipuladorBD: ManipulacaoBD
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +22,8 @@ class CadastrarFitaActivity : AppCompatActivity(), View.OnClickListener {
         inicializarListeners()
 
         manipuladorBD = ManipulacaoBD(this)
-        desativaBotoes()
 
+        desativaBotoes()
     }
 
     private fun inicializarListeners() {
@@ -35,7 +35,7 @@ class CadastrarFitaActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        var id = view.id
+        val id = view.id
         when (id) {
             R.id.btCadastrar -> {
                 manipularCadastro()
@@ -92,7 +92,6 @@ class CadastrarFitaActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun manipularPesquisa() {
-
         val titulo = edTituloFitaPesquisar.text.toString()
         if (titulo != "") {
             val entradasFita = manipuladorBD.buscarFita(titulo)
@@ -118,7 +117,6 @@ class CadastrarFitaActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun manipularAlteracao() {
-
         if (validarCampos()) {
             manipuladorBD.alterarFita(tvIdFita.text.toString().toInt(),
                     edTituloFita.text.toString(),
@@ -130,7 +128,6 @@ class CadastrarFitaActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun manipularExclusao() {
-
         manipuladorBD.excluirFita(tvIdFita.text.toString())
 
         Toast.makeText(this, "Excluído com Sucesso!", Toast.LENGTH_LONG).show()

@@ -12,7 +12,7 @@ import maurodossantos.crudteste.util.ManipulacaoBD
 
 class CadastrarClienteActivity : AppCompatActivity(), View.OnClickListener {
 
-    lateinit var manipuladorBD: ManipulacaoBD
+    private lateinit var manipuladorBD: ManipulacaoBD
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class CadastrarClienteActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        var id = view.id
+        val id = view.id
         when (id) {
             R.id.btCadastrarCliente -> {
                 manipularCadastro()

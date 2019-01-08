@@ -6,7 +6,6 @@ import android.database.Cursor
 import maurodossantos.crudteste.constantes.ConstantesBD
 import maurodossantos.crudteste.entradas.EntradasCliente
 import maurodossantos.crudteste.entradas.EntradasFita
-import java.util.*
 
 class ManipulacaoBD {
 
@@ -76,17 +75,23 @@ class ManipulacaoBD {
 
         val bufferString = StringBuffer()
 
+        var id: Int
+        var ano: Int
+        var preco: Int
+        var titulo: String
+
         while(cursor.moveToNext()) {
-            val id = cursor.getInt(cursor.getColumnIndex(ConstantesBD.FITA.COLUNAS.ID))
-            val titulo = cursor.getString(cursor.getColumnIndex(ConstantesBD.FITA.COLUNAS.TITULO))
-            val ano = cursor.getString(cursor.getColumnIndex(ConstantesBD.FITA.COLUNAS.ANO))
-            val preco = cursor.getString(cursor.getColumnIndex(ConstantesBD.FITA.COLUNAS.PRECO))
+            id = cursor.getInt(cursor.getColumnIndex(ConstantesBD.FITA.COLUNAS.ID))
+            titulo = cursor.getString(cursor.getColumnIndex(ConstantesBD.FITA.COLUNAS.TITULO))
+            ano = cursor.getInt(cursor.getColumnIndex(ConstantesBD.FITA.COLUNAS.ANO))
+            preco = cursor.getInt(cursor.getColumnIndex(ConstantesBD.FITA.COLUNAS.PRECO))
 
             bufferString.append("Id: $id, Titulo: $titulo, Ano: $ano, Preço: $preco \n")
         }
 
         cursor.close()
 
+        // Retorna listagem completa
         return bufferString.toString()
     }
 
@@ -136,7 +141,7 @@ class ManipulacaoBD {
         val selecao = " ${ConstantesBD.CLIENTE.COLUNAS.NOME} = ?"
         val selecaoArgumentos = arrayOf(nomeCliente)
 
-        // Carrega fita
+        // Carrega cliente
         cursor = bd.query(ConstantesBD.CLIENTE.NOME_TABELA, projecao, selecao, selecaoArgumentos, null, null, null)
 
         // Verifica se existe 1 elemento de retorno
@@ -147,7 +152,7 @@ class ManipulacaoBD {
             val nome = cursor.getString(cursor.getColumnIndex(ConstantesBD.CLIENTE.COLUNAS.NOME))
             val idade = cursor.getString(cursor.getColumnIndex(ConstantesBD.CLIENTE.COLUNAS.IDADE))
 
-            // Atribui valor a variável da fita
+            // Atribui valor a variável de cliente
             entradasCliente = EntradasCliente(id, nome, idade.toInt())
         }
 
@@ -167,10 +172,14 @@ class ManipulacaoBD {
 
         val bufferString = StringBuffer()
 
+        var id: Int
+        var nome: String
+        var idade: Int
+
         while(cursor.moveToNext()) {
-            val id = cursor.getInt(cursor.getColumnIndex(ConstantesBD.CLIENTE.COLUNAS.ID))
-            val nome = cursor.getString(cursor.getColumnIndex(ConstantesBD.CLIENTE.COLUNAS.NOME))
-            val idade = cursor.getString(cursor.getColumnIndex(ConstantesBD.CLIENTE.COLUNAS.IDADE))
+            id = cursor.getInt(cursor.getColumnIndex(ConstantesBD.CLIENTE.COLUNAS.ID))
+            nome = cursor.getString(cursor.getColumnIndex(ConstantesBD.CLIENTE.COLUNAS.NOME))
+            idade = cursor.getInt(cursor.getColumnIndex(ConstantesBD.CLIENTE.COLUNAS.IDADE))
 
             bufferString.append("Id: $id, Nome: $nome, Idade: $idade \n")
         }
@@ -189,7 +198,7 @@ class ManipulacaoBD {
         valores.put(ConstantesBD.LOCACAO.COLUNAS.ID_FITA, idFita)
         valores.put(ConstantesBD.LOCACAO.COLUNAS.NOME_FITA, nomeFita)
 
-        // Insere cliente
+        // Insere locação
         return bd.insert(ConstantesBD.LOCACAO.NOME_TABELA, null, valores)
     }
 
@@ -204,12 +213,18 @@ class ManipulacaoBD {
 
         val bufferString = StringBuffer()
 
+        var idLocacao: Int
+        var idCliente: Int
+        var nomeCliente: String
+        var idFita: Int
+        var nomeFita: String
+
         while(cursor.moveToNext()) {
-            val idLocacao = cursor.getInt(cursor.getColumnIndex(ConstantesBD.LOCACAO.COLUNAS.ID_LOCACAO))
-            val idCliente = cursor.getString(cursor.getColumnIndex(ConstantesBD.LOCACAO.COLUNAS.ID_CLIENTE))
-            val nomeCliente = cursor.getString(cursor.getColumnIndex(ConstantesBD.LOCACAO.COLUNAS.NOME_CLIENTE))
-            val idFita = cursor.getString(cursor.getColumnIndex(ConstantesBD.LOCACAO.COLUNAS.ID_FITA))
-            val nomeFita = cursor.getString(cursor.getColumnIndex(ConstantesBD.LOCACAO.COLUNAS.NOME_FITA))
+            idLocacao = cursor.getInt(cursor.getColumnIndex(ConstantesBD.LOCACAO.COLUNAS.ID_LOCACAO))
+            idCliente = cursor.getInt(cursor.getColumnIndex(ConstantesBD.LOCACAO.COLUNAS.ID_CLIENTE))
+            nomeCliente = cursor.getString(cursor.getColumnIndex(ConstantesBD.LOCACAO.COLUNAS.NOME_CLIENTE))
+            idFita = cursor.getInt(cursor.getColumnIndex(ConstantesBD.LOCACAO.COLUNAS.ID_FITA))
+            nomeFita = cursor.getString(cursor.getColumnIndex(ConstantesBD.LOCACAO.COLUNAS.NOME_FITA))
 
             bufferString.append("Id: $idLocacao, Cliente: $idCliente - $nomeCliente, Fita: $idFita - $nomeFita \n")
         }

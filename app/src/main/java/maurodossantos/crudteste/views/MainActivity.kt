@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        var id = view.id
+        val id = view.id
         when (id) {
             R.id.btCadastrarFita -> {
                 startActivity(Intent(this, CadastrarFitaActivity::class.java))
