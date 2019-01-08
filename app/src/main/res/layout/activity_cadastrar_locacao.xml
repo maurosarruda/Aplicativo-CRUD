@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.CadastrarLocacaoActivity">
+
+    <TextView
+        android:id="@+id/tvCadastrarLocacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/cadastro_de_locacao"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvNomeCliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="84dp"
+        android:text="@string/nome_cliente_locacao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCadastrarLocacao"/>
+
+    <TextView
+        android:id="@+id/tvNomeFita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/nome_fita_locacao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNomeCliente"/>
+
+    <EditText
+        android:id="@+id/edNomeClienteLocacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:hint="@string/nome_do_cliente_locacao"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/tvNomeCliente"
+        app:layout_constraintTop_toBottomOf="@+id/tvCadastrarLocacao"/>
+
+    <EditText
+        android:id="@+id/edNomeFitaLocacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/nome_da_fita_locacao_ed"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/tvNomeFita"
+        app:layout_constraintTop_toBottomOf="@+id/edNomeClienteLocacao"/>
+
+    <Button
+        android:id="@+id/btCadastrarLocacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        android:text="@string/cadastrar_locacao_bt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edNomeFitaLocacao"/>
+
+    <Button
+        android:id="@+id/btListarLocacoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="68dp"
+        android:text="@string/listar_locacoes_bt"
+        app:layout_constraintStart_toEndOf="@+id/btCadastrarLocacao"
+        app:layout_constraintTop_toBottomOf="@+id/edNomeFitaLocacao"/>
+</android.support.constraint.ConstraintLayout>
